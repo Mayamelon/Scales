@@ -1,11 +1,38 @@
 void setup() {
-  size(500, 500);  //feel free to change the size
-  noLoop(); //stops the draw() function from repeating
-}
-void draw() {
-  //your code here
-}
-void scale(int x, int y) {
-  //your code here
+  size(1280, 720);
+  for (int x = 0; x < 50; x++) {
+    for (int y = 0; y < 50; y++) {
+      drawHexGradient(x*50-20, y*30-20, 20);
+    }
+    for (int y = 0; y < 50; y++) {
+      drawHexGradient(x*50, y*30, 20);
+    }
+  }
 }
 
+void draw() {
+  
+}
+
+void drawHexGradient(int xPos, int yPos, int sideLength) {
+  noStroke();
+  for (int i = 0; i < sideLength; i++) {
+    fill(255,150+(i*125/sideLength),0);
+    drawHex(xPos, yPos, sideLength-i);
+  }
+  stroke(0,0,0);
+  strokeWeight(2);
+  noFill();
+  drawHex(xPos, yPos, sideLength);
+}
+
+void drawHex(int xPos, int yPos, int sideLength) {
+  beginShape();
+  vertex(sideLength*1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  vertex(sideLength*1+xPos, 0+yPos);
+  vertex(sideLength*1/2+xPos, sideLength*sqrt(3)/2+yPos);
+  vertex(sideLength*-1/2+xPos, sideLength*sqrt(3)/2+yPos);
+  vertex(sideLength*-1+xPos, 0+yPos);
+  vertex(sideLength*-1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  endShape(CLOSE);
+}
