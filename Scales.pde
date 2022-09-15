@@ -28,11 +28,13 @@ void drawHexGradient(int xPos, int yPos, int sideLength) {
 
 void drawHex(int xPos, int yPos, int sideLength) {
   beginShape();
-  vertex(sideLength*1/2+xPos, sideLength*-sqrt(3)/2+yPos);
-  vertex(sideLength*1+xPos, 0+yPos);
-  vertex(sideLength*1/2+xPos, sideLength*sqrt(3)/2+yPos);
-  vertex(sideLength*-1/2+xPos, sideLength*sqrt(3)/2+yPos);
-  vertex(sideLength*-1+xPos, 0+yPos);
-  vertex(sideLength*-1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  curveVertex(sideLength*1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  curveVertex(sideLength*1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  curveVertex(sideLength*1+xPos, 0+yPos);
+  curveVertex(sideLength*1/2+xPos, sideLength*sqrt(3)/2+yPos);
+  curveVertex(sideLength*-1/2+xPos, sideLength*sqrt(3)/2+yPos);
+  curveVertex(sideLength*-1+xPos, 0+yPos);
+  curveVertex(sideLength*-1/2+xPos, sideLength*-sqrt(3)/2+yPos);
+  curveVertex(sideLength*-1/2+xPos, sideLength*-sqrt(3)/2+yPos);
   endShape(CLOSE);
 }
